@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaderboard</title>
+</head>
+
+<body>
+
+    <h1> Leaderboard</h1>
+
+    {% for player in scores %}
+
+        <p>
+            {{ loop.index }}.
+            {{ player[0] }} -
+            {{ player[1] }}/10
+        </p>
+
+    {% endfor %}
+
+    <a href="/">
+        <button>Take Quiz Again</button>
+    </a>
+
+</body>
+
+</html>

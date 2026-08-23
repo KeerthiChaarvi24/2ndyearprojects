@@ -6,6 +6,8 @@
 <body>
     <h1>Quiz</h1>
 
+    <form action="/submit" method="POST">
+    <input type="hidden" name="username" value="{{ username }}">
     {% for question in questions %}
         <h2>{{ question[1] }}</h2>
 
@@ -18,8 +20,9 @@
         <input type="radio" name="question_{{ question[0] }}" value="D" required> D<br>
         <label> {{ question[5] }}</label>
         <br>
-
         <hr>
         {% endfor %}
+        <button type="submit">Submit</button>
+        </form>
 </body>
 </html>
