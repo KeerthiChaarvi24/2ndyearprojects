@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <title>Solvify Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Quiz</h1>
-
-    <form action="/submit" method="POST">
-    <input type="hidden" name="username" value="{{ username }}">
-    {% for question in questions %}
-        <h2>{{ question[1] }}</h2>
-
-        <input type="radio" name="question_{{ question[0] }}" value="A" required> A<br>
-        <label> {{ question[2] }}</label>
-        <input type="radio" name="question_{{ question[0] }}" value="B" required> B<br>
-        <label> {{ question[3] }}</label>
-        <input type="radio" name="question_{{ question[0] }}" value="C" required> C<br>
-        <label> {{ question[4] }}</label>
-        <input type="radio" name="question_{{ question[0] }}" value="D" required> D<br>
-        <label> {{ question[5] }}</label>
-        <br>
-        <hr>
-        {% endfor %}
-        <button type="submit">Submit</button>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <div class="quiz-title">SOLVIFY</div>
+            <div class="question-count">QUESTION 1 / 10</div>
+        </div>
+        <form action="/submit" method="POST">
+            <input type="hidden" name="username" value="{{ username }}">
+            {% for question in questions %}
+            <div class="question-card">
+                <h2>{{ question[1] }}</h2>
+                <label class="option">
+                    <input type="radio" name="question_{{ question[0] }}" value="A" required>
+                    <span>A</span>{{ question[2] }}
+                </label>
+                <label class="option">
+                    <input type="radio" name="question_{{ question[0] }}" value="B">
+                    <span>B</span>{{ question[3] }}
+                </label>
+                <label class="option">
+                    <input type="radio" name="question_{{ question[0] }}" value="C">
+                    <span>C</span>{{ question[4] }}
+                </label>
+                <label class="option">
+                    <input type="radio" name="question_{{ question[0] }}" value="D">
+                    <span>D</span>{{ question[5] }}
+                </label>
+            </div>
+            {% endfor %}
+            <button class="submit-button" type="submit">SUBMIT QUIZ</button>
         </form>
+    </div>
 </body>
 </html>

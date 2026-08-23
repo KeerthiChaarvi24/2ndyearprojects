@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
     <title>Solvify Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body id="body">
-    <div class ="container">
-        <form action="/quiz" method="post">
-            <h1> Are you ready for the quiz?</h1>
-            <label> Enter your beautiful name heh</label>
-            <input type="text" name="username" required>
-            <button onclick="startQuiz()">Start Quiz</button>
-        </form>
+<body>
+    <div class="game-container">
+        <div class="pixel-title">SOLVIFY</div>
+        <div class="subtitle">QUIZ ADVENTURE</div>
+        <div class="start-box">
+            <h2>READY PLAYER?</h2>
+            <p>Enter your name to begin</p>
+            <form action="/quiz" method="POST">
+                <input type="text" name="username" placeholder="ENTER YOUR NAME" required>
+                <button type="submit">START GAME</button>
+            </form>
+        </div>
+        <p class="footer-text">★ TEST YOUR TECH KNOWLEDGE ★</p>
     </div>
 </body>
 </html>

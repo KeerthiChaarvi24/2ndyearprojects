@@ -9,7 +9,7 @@ def home():
 @app.route("/quiz",methods=["POST"])
 def quiz():
     username=request.form["username"]
-    connection = sqlite3.connect('database.db')
+    connection = sqlite3.connect('database/database.db')
     questions = connection.execute("select * from questions").fetchall()
     connection.close()
 
@@ -19,7 +19,7 @@ def quiz():
 def submit():
     username = request.form["username"]
     score = 0
-    connection = sqlite3.connect('database.db')
+    connection = sqlite3.connect('database/database.db')
     questions = connection.execute("select * from questions").fetchall()
 
     for question in questions:
@@ -34,12 +34,12 @@ def submit():
 
 @app.route("/leaderboard")
 def leaderboard():
-    connection = sqlite3.connect("database.db")
-    score = connection.execute(
-        "SELECT name, score FROM scores ORDER BY score DESC"
+    connection = sqlite3.connect("database/database.db")
+    scores = connection.execute(
+        "select name, score from scores order by score DESC"
     ).fetchall()
     connection.close()
-    return render_template("leaderboard.html", score=score)
+    return render_template("leaderboard.html", scores=scores)
 
 if __name__ == "__main__":
     app.run(debug=True)

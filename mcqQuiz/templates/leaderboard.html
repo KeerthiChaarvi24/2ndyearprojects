@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
+    <div class="leaderboard-container">
+        <div class="leaderboard-title">LEADERBOARD</div>
 
-    <h1> Leaderboard</h1>
+        <div class="leaderboard">
+            {% for player in scores %}
+            <div class="leaderboard-row">
+                <div class="leaderboard-rank">#{{ loop.index }}</div>
+                <div class="leaderboard-name">{{ player[0] }}</div>
+                <div class="leaderboard-score">{{ player[1] }}/10</div>
+            </div>
+            {% endfor %}
+        </div>
 
-    {% for player in scores %}
-
-        <p>
-            {{ loop.index }}.
-            {{ player[0] }} -
-            {{ player[1] }}/10
-        </p>
-
-    {% endfor %}
-
-    <a href="/">
-        <button>Take Quiz Again</button>
-    </a>
-
+        <a href="/">
+            <button class="restart-button">TAKE QUIZ AGAIN</button>
+        </a>
+    </div>
 </body>
-
 </html>

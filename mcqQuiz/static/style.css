@@ -1,3 +1,449 @@
-.body {
-    
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16002e,
+            #3b0a63,
+            #6b1fa8
+        );
+
+    color: white;
+
+    font-family: 'Press Start 2P', monospace;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    image-rendering: pixelated;
+}
+
+.game-container {
+    width: 90%;
+    max-width: 800px;
+
+    text-align: center;
+}
+
+.pixel-title {
+    font-size: 55px;
+
+    color: #ffffff;
+
+    text-shadow:
+        5px 5px 0px #16002e,
+        10px 10px 0px #8e44ad;
+
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 18px;
+
+    color: #f3c7ff;
+
+    margin-bottom: 50px;
+}
+
+.start-box {
+    background: #24103d;
+
+    border: 6px solid #ffffff;
+
+    padding: 45px;
+
+    box-shadow:
+        12px 12px 0px #16002e,
+        18px 18px 0px #8e44ad;
+}
+
+.start-box h2 {
+    font-size: 20px;
+
+    margin-bottom: 30px;
+}
+
+.start-box p {
+    font-size: 12px;
+
+    color: #d9b3ff;
+
+    margin-bottom: 30px;
+}
+
+input {
+    width: 80%;
+
+    padding: 18px;
+
+    background: #130020;
+
+    border: 4px solid #ffffff;
+
+    color: white;
+
+    font-family: 'Press Start 2P', monospace;
+
+    font-size: 12px;
+
+    text-align: center;
+
+    outline: none;
+}
+
+input:focus {
+    border-color: #e29cff;
+
+    box-shadow:
+        0 0 0 4px #8e44ad;
+}
+
+button {
+    display: block;
+
+    margin: 30px auto 0;
+
+    padding: 18px 30px;
+
+    background: #9b4dca;
+
+    color: white;
+
+    border: 5px solid white;
+
+    font-family: 'Press Start 2P', monospace;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+        6px 6px 0px #16002e;
+}
+
+button:hover {
+    background: #c56cff;
+
+    transform: translate(-2px, -2px);
+
+    box-shadow:
+        8px 8px 0px #16002e;
+}
+
+button:active {
+    transform: translate(4px, 4px);
+
+    box-shadow:
+        2px 2px 0px #16002e;
+}
+
+.footer-text {
+    margin-top: 45px;
+
+    font-size: 10px;
+
+    color: #d9b3ff;
+}
+
+
+.quiz-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0 60px;
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.quiz-title {
+    font-size: 36px;
+    color: #ffffff;
+    text-shadow: 5px 5px #8e44ad;
+    margin-bottom: 25px;
+}
+
+.question-count {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #8e44ad;
+    border: 4px solid white;
+    font-size: 11px;
+}
+
+.question-card {
+    background: #2b1050;
+    border: 5px solid white;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 8px 8px #8e44ad;
+}
+
+.question-card h2 {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.option {
+    display: block;
+    background: #42166b;
+    border: 4px solid #9b4dca;
+    padding: 18px;
+    margin: 12px 0;
+    font-size: 11px;
+    line-height: 1.8;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #6d2a9e;
+    border-color: white;
+}
+
+.option input {
+    display: none;
+}
+
+.option span {
+    display: inline-block;
+    margin-right: 15px;
+    color: #f0a8ff;
+}
+
+.option:has(input:checked) {
+    background: #9b4dca;
+    border-color: white;
+    box-shadow: 6px 6px #16002e;
+}
+
+.submit-button {
+    display: block;
+    margin: 40px auto 0;
+    padding: 20px 30px;
+    background: #9b4dca;
+    color: white;
+    border: 5px solid white;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 7px 7px #000000;
+}
+
+.submit-button:hover {
+    background: #c56cff;
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px #000000;
+}
+
+.submit-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 3px 3px #000000;
+}
+/* ============================= */
+/* RESULT / SCORE SECTION        */
+/* ============================= */
+
+.result-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.result-card {
+    background: #24103d;
+    border: 6px solid white;
+    padding: 45px 30px;
+    box-shadow:
+        12px 12px #16002e,
+        18px 18px #8e44ad;
+}
+
+.result-card h1 {
+    font-size: 30px;
+    color: white;
+    text-shadow: 5px 5px #8e44ad;
+    margin-bottom: 30px;
+}
+
+.score {
+    font-size: 45px;
+    color: #f0a8ff;
+    text-shadow: 5px 5px #16002e;
+    margin: 30px 0;
+}
+
+.result-message {
+    font-size: 13px;
+    line-height: 2;
+    color: #d9b3ff;
+    margin-bottom: 30px;
+}
+
+
+/* ============================= */
+/* LEADERBOARD                   */
+/* ============================= */
+
+.leaderboard-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.leaderboard-title {
+    font-size: 30px;
+    color: white;
+    text-shadow:
+        5px 5px #16002e,
+        10px 10px #8e44ad;
+    margin-bottom: 35px;
+}
+
+.leaderboard {
+    background: #24103d;
+    border: 6px solid white;
+    padding: 25px;
+    box-shadow:
+        10px 10px #16002e,
+        16px 16px #8e44ad;
+}
+
+.leaderboard-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 120px;
+    align-items: center;
+
+    background: #42166b;
+    border: 4px solid #9b4dca;
+
+    padding: 18px;
+    margin-bottom: 12px;
+
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.leaderboard-row:hover {
+    background: #6d2a9e;
+    border-color: white;
+    transform: translate(-2px, -2px);
+}
+
+.leaderboard-rank {
+    color: #f0a8ff;
+}
+
+.leaderboard-name {
+    color: white;
+    text-align: left;
+}
+
+.leaderboard-score {
+    color: #f0a8ff;
+    text-align: right;
+}
+
+
+/* ============================= */
+/* TOP 3 LEADERBOARD             */
+/* ============================= */
+
+.leaderboard-row:first-child {
+    background: #8e44ad;
+    border-color: white;
+    box-shadow: 5px 5px #16002e;
+}
+
+.leaderboard-row:first-child .leaderboard-rank,
+.leaderboard-row:first-child .leaderboard-score {
+    color: #ffffff;
+}
+
+
+/* ============================= */
+/* BACK / RESTART BUTTON         */
+/* ============================= */
+
+.restart-button {
+    display: inline-block;
+    margin: 35px 10px 0;
+    padding: 18px 25px;
+
+    background: #9b4dca;
+    color: white;
+
+    border: 5px solid white;
+
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+
+    cursor: pointer;
+
+    box-shadow: 6px 6px #16002e;
+}
+
+.restart-button:hover {
+    background: #c56cff;
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px #16002e;
+}
+
+.restart-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px #16002e;
+}
+
+
+/* ============================= */
+/* MOBILE                       */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    .pixel-title {
+        font-size: 35px;
+    }
+
+    .quiz-title {
+        font-size: 25px;
+    }
+
+    .result-card h1,
+    .leaderboard-title {
+        font-size: 22px;
+    }
+
+    .score {
+        font-size: 32px;
+    }
+
+    .leaderboard-row {
+        grid-template-columns: 55px 1fr 80px;
+        font-size: 9px;
+        padding: 14px 10px;
+    }
+
+    .question-card {
+        padding: 20px;
+    }
+
+    .option {
+        font-size: 9px;
+        padding: 14px;
+    }
 }
