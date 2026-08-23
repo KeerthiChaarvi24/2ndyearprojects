@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <h1>Quiz</h1>
+
+    {% for question in questions %}
+        <h2>{{ question[1] }}</h2>
+
+        <input type="radio" name="question_{{ question[0] }}" value="A" required> A<br>
+        <label> {{ question[2] }}</label>
+        <input type="radio" name="question_{{ question[0] }}" value="B" required> B<br>
+        <label> {{ question[3] }}</label>
+        <input type="radio" name="question_{{ question[0] }}" value="C" required> C<br>
+        <label> {{ question[4] }}</label>
+        <input type="radio" name="question_{{ question[0] }}" value="D" required> D<br>
+        <label> {{ question[5] }}</label>
+        <br>
+
+        <hr>
+        {% endfor %}
+</body>
+</html>
