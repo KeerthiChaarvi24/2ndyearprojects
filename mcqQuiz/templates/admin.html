@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solvify Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>⚡ ADMIN DASHBOARD ⚡</h1>
+        <p>MANAGE YOUR SOLVIFY QUIZ</p>
+
+        <div class="admin-card">
+            <h2>➕ ADD QUESTION</h2>
+
+            <form action="/admin/add" method="POST">
+                <label>QUESTION</label>
+                <input type="text" name="question" required>
+
+                <label>OPTION A</label>
+                <input type="text" name="option1" required>
+
+                <label>OPTION B</label>
+                <input type="text" name="option2" required>
+
+                <label>OPTION C</label>
+                <input type="text" name="option3" required>
+
+                <label>OPTION D</label>
+                <input type="text" name="option4" required>
+
+                <label>CORRECT ANSWER</label>
+                <select name="answer" required>
+                    <option value="">SELECT</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+
+                <button type="submit">ADD QUESTION</button>
+            </form>
+        </div>
+
+        <div class="admin-card">
+            <h2>📋 EXISTING QUESTIONS</h2>
+
+            {% for question in questions %}
+            <div class="question-item">
+                <h3>Q{{ loop.index }}. {{ question[1] }}</h3>
+
+                <p>A. {{ question[2] }}</p>
+                <p>B. {{ question[3] }}</p>
+                <p>C. {{ question[4] }}</p>
+                <p>D. {{ question[5] }}</p>
+
+                <p class="correct-answer">
+                    CORRECT ANSWER: {{ question[6] }}
+                </p>
+
+                <form action="/admin/delete/{{ question[0] }}" method="POST">
+                    <button type="submit" class="delete-button">
+                        🗑 DELETE
+                    </button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="admin-card">
+            <h2>🏆 SUBMITTED SCORES</h2>
+
+            {% if scores %}
+                {% for score in scores %}
+                <div class="leaderboard-row">
+                    <div class="leaderboard-rank">
+                        #{{ loop.index }}
+                    </div>
+
+                    <div class="leaderboard-name">
+                        {{ score[0] }}
+                    </div>
+
+                    <div class="leaderboard-score">
+                        {{ score[1] }}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>NO SCORES YET.</p>
+            {% endif %}
+        </div>
+
+        <a href="/admin/logout" class="back-button">LOGOUT</a>
+        <a href="/" class="back-button">← HOME</a>
+    </div>
+</body>
+</html>

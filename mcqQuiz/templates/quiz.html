@@ -9,32 +9,45 @@
         <div class="quiz-header">
             <div class="quiz-title">SOLVIFY</div>
             <div class="question-count">QUESTION 1 / 10</div>
+            <div class="timer" id="timer">10:00</div>
+            <button type="button" class="fullscreen-button" id="fullscreen-button">ENTER FULLSCREEN</button>
         </div>
-        <form action="/submit" method="POST">
+
+        <div class="integrity-warning" id="integrity-warning"></div>
+
+        <form action="/submit" method="POST" id="quiz-form">
             <input type="hidden" name="username" value="{{ username }}">
+
             {% for question in questions %}
             <div class="question-card">
                 <h2>{{ question[1] }}</h2>
+
                 <label class="option">
                     <input type="radio" name="question_{{ question[0] }}" value="A" required>
                     <span>A</span>{{ question[2] }}
                 </label>
+
                 <label class="option">
                     <input type="radio" name="question_{{ question[0] }}" value="B">
                     <span>B</span>{{ question[3] }}
                 </label>
+
                 <label class="option">
                     <input type="radio" name="question_{{ question[0] }}" value="C">
                     <span>C</span>{{ question[4] }}
                 </label>
+
                 <label class="option">
                     <input type="radio" name="question_{{ question[0] }}" value="D">
                     <span>D</span>{{ question[5] }}
                 </label>
             </div>
             {% endfor %}
+
             <button class="submit-button" type="submit">SUBMIT QUIZ</button>
         </form>
     </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

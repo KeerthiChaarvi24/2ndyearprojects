@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solvify Admin Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-card">
+            <h1>⚡ ADMIN LOGIN ⚡</h1>
+
+            <p>AUTHORIZED PERSONNEL ONLY</p>
+
+            <form method="POST">
+                <label>ADMIN PASSWORD</label>
+                <input type="password" name="password" required>
+
+                {% if error %}
+                <p class="login-error">{{ error }}</p>
+                {% endif %}
+
+                <button type="submit">LOGIN</button>
+            </form>
+
+            <a href="/" class="back-button">← BACK TO HOME</a>
+        </div>
+    </div>
+</body>
+</html>
